@@ -74,6 +74,7 @@ var game = {
             game.result();
         } else {
         $("#correctAnswer").text("");
+        $("#victory").text("");
         game.time = 20;
         $("#timer").text("0:" + game.time)
         game.timer();
@@ -128,18 +129,21 @@ var game = {
     correct: function() {
         console.log("correct");
         $("#correctAnswer").text("Correct!");
+        $("#victory").html("<img src='assets/images/storm.jpg' style='width: 175px'>");
         var resultsScreen = setTimeout(game.startGame, 5000);
     },
 
     wrong: function() {
         console.log("wrong");
-        $("#correctAnswer").text("Sorry, the answer was " + game.correctAnswer);
+        $("#correctAnswer").text("Sorry, the answer was:   " + game.correctAnswer);
+        $("#victory").html("<img src='assets/images/eeyore_rain_cloud.jpg' style='width: 175px'>");
         var resultsScreen = setTimeout(game.startGame, 5000);
     },
 
     timeOut: function() {
         game.numberWrong++;
-        $("#correctAnswer").text("Sorry, the answer was " + game.correctAnswer);
+        $("#victory").html("<img src='assets/images/sloth.jpg' style='width: 250px'>");
+        $("#correctAnswer").text("Sorry, time's up! The answer was:   " + game.correctAnswer);
         var resultsScreen = setTimeout(game.startGame, 5000);
         console.log("Time's Up");
     },
@@ -148,6 +152,7 @@ var game = {
         console.log("Correct: " + game.numberCorrect + "     Wrong: " + game.numberWrong);
         clearInterval(game.intervalId);
         game.timerRunning = false;
+        $("#victory").text("");
         $("#timer").text("");
         $("#correctAnswer").text("Your Score:");
         $("#question").text("");
