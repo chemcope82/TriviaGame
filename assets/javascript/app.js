@@ -144,9 +144,6 @@ var game = {
         $("#timer").text("0:" + game.time)
         game.timer();
         game.showQuestion();
-
-        // console.log("game is started");
-        // console.log(game.questions[0]);
         }
     },
 
@@ -164,7 +161,6 @@ var game = {
         game.correctAnswer = game.questions[currentIndex].CA;
         game.questions.splice(currentIndex, 1);
 
-        // console.log("The correct answer is " + game.correctAnswer);
         $("#start-button").hide();
         $("#question").html(Q + "<br><br>");
         $("#a1").text(A1);
@@ -180,7 +176,6 @@ var game = {
             clearInterval(game.intervalId);
             game.timerRunning = false;
             var userGuess = event.target.textContent;
-            console.log(userGuess);
             if (userGuess === game.correctAnswer) {
                 game.numberCorrect++;
                 game.correct();
@@ -192,14 +187,12 @@ var game = {
     },
 
     correct: function() {
-        console.log("correct");
         $("#correctAnswer").text("Correct!");
         $("#victory").html("<img src='assets/images/storm.jpg' style='width: 175px'>");
         var resultsScreen = setTimeout(game.startGame, 5000);
     },
 
     wrong: function() {
-        console.log("wrong");
         $("#correctAnswer").text("Sorry, the answer was:   " + game.correctAnswer);
         $("#victory").html("<img src='assets/images/eeyore_rain_cloud.jpg' style='width: 175px'>");
         var resultsScreen = setTimeout(game.startGame, 5000);
@@ -210,11 +203,9 @@ var game = {
         $("#victory").html("<img src='assets/images/sloth.jpg' style='width: 250px'>");
         $("#correctAnswer").text("Sorry, time's up! The answer was:   " + game.correctAnswer);
         var resultsScreen = setTimeout(game.startGame, 5000);
-        console.log("Time's Up");
     },
 
     result: function() {
-        console.log("Correct: " + game.numberCorrect + "     Wrong: " + game.numberWrong);
         clearInterval(game.intervalId);
         game.timerRunning = false;
         $("#victory").text("");
@@ -243,8 +234,6 @@ var game = {
         game.userGuess = "";
         game.correctAnswer = "";
         game.startGame();
-        console.log("New Game");
-        console.log(game.questions);
     }
 };
 
