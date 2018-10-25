@@ -187,7 +187,7 @@ var game = {
     },
 
     correct: function() {
-        $("#correctAnswer").text("Correct!");
+        $("#correctAnswer").text("Correct! ..... " + game.correctAnswer);
         $("#victory").html("<img src='assets/images/storm.jpg' style='width: 175px'>");
         var resultsScreen = setTimeout(game.startGame, 5000);
     },
