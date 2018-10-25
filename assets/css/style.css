@@ -1,0 +1,30 @@
+body {
+    background-image: url(../images/bigLightning.jpg);
+    font-size: 20px;
+    font-family: 'Lato', sans-serif;
+    font-style: italic;
+    text-align: center;
+}
+
+header {
+    height: 50px;
+}
+
+.gameArea {
+    background-color: lightblue;
+    max-width: 960px;
+}
+h1 {
+    font-family: 'Gloria Hallelujah', cursive;
+    color: rgb(253, 208, 6);
+    font-weight: bold;
+    font-size: 48px;
+    line-height: 80px;
+}
+.answer:hover {
+    cursor: pointer;
+    color: rgb(192, 35, 8);
+}
+#start-button {
+    cursor: pointer;
+}
